@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div></div>
+	<script type="text/javascript">
+		var data = {
+			"pid": "112233",
+			"p_name": "Lorem Ipsum doller sit",
+			"scg": "Commerce",
+			"location": "BLR",
+			"fe_lead_name": "vimala",
+			"p_status": "green",
+			"p_status_color_code": "#2c2c2c",
+			"p_techstack": "Angular,jQuery,Gulp,Jasmine,Karma",
+			"start_date": "2015-12-31T18:25:43.000Z",
+			"end_date": "2015-12-31T18:25:43.000Z"
+		}
+		var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4 && ajax.status == 200) {
+				var response = ajax.responseText;
+				console.log( JSON.parse(response));
+			}
+		};
+		ajax.open("POST", "http://localhost:3000/post", true);
+		ajax.setRequestHeader("Content-type", "application/json");
+		ajax.send(JSON.stringify(data));
+	</script>
+</body>
+</html>
